@@ -1,10 +1,11 @@
 #include <vector>
 
-void displayGrid();
+void displayGrid(char let, std::vector<int> rowCol);
 
-char letInput();
+char getLetter();
 
-template <typename T>
-T getRC(){
-    
-}
+std::vector<int> getRowColumn();
+
+
+
+
