@@ -4,17 +4,25 @@
 using namespace std;
 
 void displayGrid(){
-    std::vector<std::vector<char>>charMatrix(3,std::vector<char>(3,' '));
+    //3x3 char vector
+    //outer vector has 3 rows, each inner vector has 3 columns
+    vector<vector<char> > grid(3, vector<char>(3,' '));
 
-    charMatrix[0][0] = 'A';
-    charMatrix[1][1] = 'B';
-    charMatrix[2][2] = 'C';
+    grid[0][0] = 'X'; //test outputs
+    grid[1][1] = 'X';
+    grid[2][2] = 'X';
 
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 3; ++j) {
-            std::cout << charMatrix[i][j] << " ";
+            std::cout << grid[i][j] << " ";
         }
         std::cout << std::endl;
 }
 
+}
+char letInput(){
+    char let; 
+    cout << "X or O?";
+    cin >> let; 
+    return let;
 }
