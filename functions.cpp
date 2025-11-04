@@ -3,24 +3,28 @@
 #include "functions.h"
 using namespace std;
 
-void displayGrid(char let, vector<int> rowCol){
-    //3x3 char vector
-    //outer vector has 3 rows, each inner vector has 3 columns
-    vector<vector<char> > grid(3, vector<char>(3,' '));
-
-    int r = rowCol[0];
-    int c = rowCol[1];
-
-    grid[r][c] = let; //uses the values of rowCol and puts the letter there
+void displayGridOnly(const vector<vector<char>> &grid){
 
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 3; ++j) {
-            std::cout << grid[i][j] << " ";
+            cout << grid[i][j] << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
 }
 
 }
+void updateAndDisplayGrid(vector<vector<char>> &grid, char let, vector<int> rowCol) {
+    grid[rowCol[0]][rowCol[1]] = let;
+
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            cout << grid[i][j] << " ";
+        }
+        cout << endl;
+}
+}
+
+
 char getLetter(){
     char let;
     cout << "X or O?:";
