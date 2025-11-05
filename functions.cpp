@@ -21,19 +21,18 @@ void updateAndDisplayGrid(vector<vector<char>> &grid, char let, vector<int> rowC
     }
     grid[rowCol[0]][rowCol[1]] = let;
 
-    for (int i = 0; i < 3; ++i) { //displays grid
-        for (int j = 0; j < 3; ++j) {
-            cout << grid[i][j] << " ";
-        }
-        cout << endl;
-}
+    displayGridOnly(grid);
     cout << endl;
 }
 
     vector<int> getRowColumn(){
         int row, column;
         do {cout << "Enter the row and column: \n";
-        cin >> row >> column;
+        while (!(cin >> row >> column)) { //checks if row or column is not an int 
+    cout << "Invalid input! Please enter numbers.\n"; 
+    cin.clear();
+    cin.ignore(10000, '\n');
+}
         if (row == 21) {    //enter 21 in row input to end program (for testing)
             cout << "Program ended"; 
             exit(EXIT_SUCCESS);
