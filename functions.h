@@ -4,7 +4,11 @@ void displayGridOnly(const std::vector<std::vector<char>> &grid);
 
 void updateAndDisplayGrid(std::vector<std::vector<char>> &grid, char let, std::vector<int> rowCol);
 
-char getLetter();
+char playerXTurn();
+
+char playerOTurn();
+
+void checkForWin(std::vector<std::vector<char>> &grid);
 
 std::vector<int> getRowColumn();
 

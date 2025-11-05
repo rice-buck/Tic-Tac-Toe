@@ -5,22 +5,35 @@ using namespace std;
 
 int main(){
     int i = 0;
-    char letter; // stores x or o from getLetter()
+    char letter; // stores x or o depending on player 1 or 
     vector<int> rowCol; //stores row and col from getRowColumn()
 
-    vector<vector<char>> grid(3, vector<char>(3, '-'));
+    cout << "===========\nTic-Tac-Toe\n===========\n\n";
+    vector<vector<char>> grid(3, vector<char>(3, '-')); //initial grid 
 
     displayGridOnly(grid);
     
-while(i < 6){
+while(i < 4){ //two plays every iteration
 
-    letter = getLetter();
+    letter = playerXTurn();         //order goes: players turn, get row and column, display grid based off input, check for win, repeat
 
     rowCol = getRowColumn();
     
     updateAndDisplayGrid(grid, letter, rowCol);
-    
 
+    checkForWin(grid);
+
+    letter = playerOTurn();
+
+    rowCol = getRowColumn();
+
+    updateAndDisplayGrid(grid, letter, rowCol);
+
+    checkForWin(grid);
+    
     i++;
 }
+    cout << "Draw!\n"; //if eight plays happen its a draw
+return 0;
+
 }
